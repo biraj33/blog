@@ -14,22 +14,96 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
+ 
+const posts = [];
 
 
 app.get("/", function(req , res){
-  res.render("home" , {startingContent:homeStartingContent});
+  res.render("home" , {startingContent:homeStartingContent , posts:posts});
+   
 
 })
 
 
+app.get("/about" , function( req, res){
+ res.render("about" , {aboutContent:aboutContent});
+});
+
+app.get("/contact" , function( req, res){
+  res.render("contact", {contactContent:contactContent});
+ });
+ 
+
+ app.get("/compose" ,  function(req, res){
+  res.render("compose");
+ })
+
+ app.post("/compose" , function(req, res){
+   
+  let postTitle = req.body.postTitle;
+  let postBody = req.body.postBody;
+
+  const post = {
+    title:postTitle,
+    content:postBody
+  };
+  posts.push(post);
+  res.redirect("/");
+  // console.log(posts);
+   
+ } );
 
 
 
 
+for(var i =0 ; i<=posts.length ; i++){
+  console.log(posts[i].title);
+}
+
+ posts.forEach(function (post){
+  // if(post.title === req.params.postName)
+  // {
+  //  console.log("got ya");
+  // }
+  console.log(post);
+ 
+ });
 
 
 
 
+ 
+  posts.forEach(function (post){
+ 
+      console.log(post.title);
+      post.content
+ 
+  }) 
+ 
+
+
+
+ const arr=[1,2,3,4,5,6,7,8,9];
+ app.get("/post/:postName", function (req, res){
+  const requestedTitle = req.params.postName;
+
+  posts.forEach(function(post){
+ const storedTitle = post.title;
+  console.log(storedTitle);
+
+
+ if (storedTitle === requestedTitle ){
+
+  console.log("got ya");
+
+ }
+
+
+ console.log(requestedTitle);
+
+});
+  // console.log(requestedTitle);
+})
 
 
 app.listen(3000, function() {

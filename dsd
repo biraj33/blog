@@ -1,0 +1,11 @@
+[33mcommit 42867e25cd14b2f175b6fe59dcbb6ff17bbe90de[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: unknown <silub33@gmail.com>
+Date:   Thu Jul 28 22:24:58 2022 +0545
+
+    Remove the now ignored directory node_modules
+
+[33mcommit fa4bc779ba80eff68a2f9b7b7d8606328b937736[m
+Author: unknown <silub33@gmail.com>
+Date:   Mon Jul 25 21:09:52 2022 +0545
+
+    first commit
